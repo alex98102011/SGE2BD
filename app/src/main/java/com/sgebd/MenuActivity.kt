@@ -22,5 +22,8 @@ class MenuActivity : AppCompatActivity() {
         btnPersonales = findViewById(R.id.btnPersonales)
         btnInscripcion=findViewById(R.id.btnInscripcion)
 
+
+        btnKardex.setOnClickListener {  }
+
     }
 }
