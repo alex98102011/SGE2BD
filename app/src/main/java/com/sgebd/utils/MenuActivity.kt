@@ -1,8 +1,9 @@
-package com.sgebd
+package com.sgebd.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.sgebd.R
 
 class MenuActivity : AppCompatActivity() {
     lateinit var btnKardex : Button

@@ -9,8 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SGEBD">
-        <activity android:name=".MenuActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".utils.ScheduleActivity"></activity>
+        <activity android:name=".utils.RegisterActivity" />
+        <activity android:name=".utils.KardexActivity" />
+        <activity android:name=".utils.InscripcionActivity" />
+        <activity android:name=".utils.DatosActivity" />
+        <activity android:name=".utils.AcademicAdvanceActivity" />
+        <activity android:name=".utils.MenuActivity" />
+        <activity android:name=".utils.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

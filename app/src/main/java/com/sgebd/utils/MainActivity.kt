@@ -1,9 +1,10 @@
-package com.sgebd
+package com.sgebd.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.sgebd.R
 
 class MainActivity : AppCompatActivity() {
     lateinit var editNoControl : EditText
