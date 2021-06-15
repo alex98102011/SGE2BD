@@ -5,11 +5,12 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import java.lang.NullPointerException
 
-class DBManager (context: Context?,
+class DBManager (
+    context: Context?,
                  name: String?,
                  factory: SQLiteDatabase.CursorFactory?,
-                 version: Int): SQLiteOpenHelper(context, name, factory, version)
-{
+                 version: Int
+): SQLiteOpenHelper(context, name, factory, version) {
     override fun onCreate(db: SQLiteDatabase?) {
         var sql = ""
 
@@ -19,17 +20,15 @@ class DBManager (context: Context?,
                     id INTEGER PRIMARY KEY NOT NULL,
                     name TEXT NOT NULL,
                     grade  TEXT NOT NULL,
-                    evaluation TEXT NOT NULL
-           
-            )
-            """
+                    evaluation TEXT NOT NULL)
+            """.trimIndent()
             it.execSQL(sql)
 
-            sql= "INSERT INTO materia (name, grade, evaluation) VALUES ('Fundamentos','Tercer_Seemestre','80')"
+            sql = "INSERT INTO materia (name,grade,evaluation) VALUES ('1','3','80')"
 
             it.execSQL(sql)
 
-            sql="""
+            sql = """
                CREATE TABLE alumno(
                     id INTEGER PRIMARY KEY NOT NULL,
                     name TEXT NOT NULL,
@@ -40,9 +39,10 @@ class DBManager (context: Context?,
             )
              """.trimIndent()
 
-            sql= "INSERT INTO alumno (name, carrera, semestre, contrasena) VALUES ('Alex','Tics','8','1234')"
+            sql =
+                "INSERT INTO alumno (name, carrera, semestre, contrasena) VALUES ('Alex','Tics','8','1234')"
 
-            sql="""
+            sql = """
                 CREATE TABLE inscripcion(
                     id INTEGER PRIMARY KEY NOT NULL,
                     name TEXT NOT NULL,
@@ -50,11 +50,10 @@ class DBManager (context: Context?,
         )
         """.trimIndent()
 
-            sql= "INSERT INTO incripcion (name, profesor) VALUES ('Fundamentos','Carlos L')"
+            sql = "INSERT INTO incripcion (name, profesor) VALUES ('Fundamentos','Carlos L')"
         }
-    }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
     }
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {}
 }

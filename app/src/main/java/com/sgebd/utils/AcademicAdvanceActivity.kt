@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mysge.adapters.RecyclerReticulaAdapter
-import com.example.mysge.utils.AdminBD
+//import com.example.mysge.adapters.RecyclerReticulaAdapter
+//import com.example.mysge.utils.AdminBD
 import com.sgebd.R
 import org.json.JSONArray
 import org.json.JSONObject
