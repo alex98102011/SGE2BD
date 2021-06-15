@@ -3,6 +3,7 @@ package com.sgebd.models
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import java.lang.NullPointerException
 
 class DBManager (context: Context?,
                  name: String?,
@@ -10,10 +11,50 @@ class DBManager (context: Context?,
                  version: Int): SQLiteOpenHelper(context, name, factory, version)
 {
     override fun onCreate(db: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+        var sql = ""
+
+        db?.let {
+            sql = """
+                CREATE TABLE Materia(
+                    id INTERGET PRIMARY KEY NOT NULL,
+                    name TEXT NOT NULL,
+                    grade  TEXT NOT NULL,
+                    evaluation TEXT NOT NULL
+           
+            )
+            """
+            it.execSQL(sql)
+
+            sql= "INSERT INTO materia (name, grade, evaluation) VALUES ('Fundamentos','Tercer Seemestre','80')"
+
+            it.execSQL(sql)
+
+            sql="""
+               CREATE TABLE alumno(
+                    id INTEGER PRIMARY KEY NOT NULL,
+                    name TEXT NOT NULL,
+                    carrera TEXT NOT NULL,
+                    semestre TEXT NOT NULL,
+                    contrasena TEXT NOT NULL
+
+            )
+             """.trimIndent()
+
+            sql= "INSERT INTO alumno (name, carrera, semestre, contrasena) VALUES ('Alex','Tics','8','1234')"
+
+            sql="""
+                CREATE TABLE inscripcion(
+                    id INTEGER PRIMARY KEY NOT NULL,
+                    name TEXT NOT NULL,
+                    profesor TEX NOT NUll
+        )
+        """.trimIndent()
+
+            sql= "INSERT INTO incripcion (name, profesor) VALUES ('Fundamentos','Tics','Carlos L')"
+        }
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
+
     }
 }
