@@ -22,6 +22,5 @@ class MainActivity : AppCompatActivity() {
         btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
 
 
-
     }
 }

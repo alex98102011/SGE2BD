@@ -15,8 +15,8 @@ class DBManager (context: Context?,
 
         db?.let {
             sql = """
-                CREATE TABLE Materia(
-                    id INTERGET PRIMARY KEY NOT NULL,
+                CREATE TABLE materia(
+                    id INTEGER PRIMARY KEY NOT NULL,
                     name TEXT NOT NULL,
                     grade  TEXT NOT NULL,
                     evaluation TEXT NOT NULL
@@ -25,7 +25,7 @@ class DBManager (context: Context?,
             """
             it.execSQL(sql)
 
-            sql= "INSERT INTO materia (name, grade, evaluation) VALUES ('Fundamentos','Tercer Seemestre','80')"
+            sql= "INSERT INTO materia (name, grade, evaluation) VALUES ('Fundamentos','Tercer_Seemestre','80')"
 
             it.execSQL(sql)
 
@@ -50,7 +50,7 @@ class DBManager (context: Context?,
         )
         """.trimIndent()
 
-            sql= "INSERT INTO incripcion (name, profesor) VALUES ('Fundamentos','Tics','Carlos L')"
+            sql= "INSERT INTO incripcion (name, profesor) VALUES ('Fundamentos','Carlos L')"
         }
     }
 

@@ -5,22 +5,22 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="SGBSQL"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SGEBD">
-        <activity android:name=".utils.ScheduleActivity"></activity>
+        <activity android:name=".utils.ScheduleActivity"/>
         <activity android:name=".utils.RegisterActivity" />
         <activity android:name=".utils.KardexActivity" />
-        <activity android:name=".utils.InscripcionActivity" />
+        <activity android:name=".utils.InscripcionActivity"/>
         <activity android:name=".utils.DatosActivity" />
         <activity android:name=".utils.AcademicAdvanceActivity" />
         <activity android:name=".utils.MenuActivity" />
         <activity android:name=".utils.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>
