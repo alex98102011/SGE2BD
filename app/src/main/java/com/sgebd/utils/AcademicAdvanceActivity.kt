@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 //import com.example.mysge.adapters.RecyclerReticulaAdapter
 //import com.example.mysge.utils.AdminBD
 import com.sgebd.R
+import com.sgebd.adapters.RecyclerReticulaAdapter
 import org.json.JSONArray
 import org.json.JSONObject
 

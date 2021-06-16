@@ -1,6 +1,6 @@
 package com.sgebd.utils
 
-import RecyclerKardexAdapter
+
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +8,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mysge.utils.AdminBD
+
 import com.sgebd.R
+import com.sgebd.adapters.RecyclerKardexAdapter
 import org.json.JSONArray
 import org.json.JSONObject
 

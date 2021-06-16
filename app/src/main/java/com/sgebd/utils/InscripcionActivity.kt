@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mysge.adapters.RecylerInscripcionAdapter
-import com.example.mysge.utils.AdminBD
+
 import com.sgebd.R
+import com.sgebd.adapters.RecyclerInscripcionAdapter
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -17,7 +17,6 @@ class InscripcionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inscripcion)
-        val jsonInscripcion=resources.getString(R.string.jsonInscripcion)
         recyclerInscripcion=findViewById(R.id.recyclerInscripcion)
 
         var stringBD = intent.getStringExtra("bd")
@@ -55,7 +54,7 @@ class InscripcionActivity : AppCompatActivity() {
                 }
 
                 // Colocamos el resultado en la UI
-                recyclerInscripcion.adapter = RecylerInscripcionAdapter(this, R.layout.row_reticula, jsonAlumnoMaterias, bd.getJSONArray("materias"))
+                recyclerInscripcion.adapter = RecyclerInscripcionAdapter(this, R.layout.row_reticula, jsonAlumnoMaterias, bd.getJSONArray("materias"))
                 recyclerInscripcion.layoutManager = LinearLayoutManager(this)
 
                 println("Nueva BD:\n$bd")
@@ -67,7 +66,7 @@ class InscripcionActivity : AppCompatActivity() {
             jsonAlumnoMaterias = jsonAlumno.getJSONArray("kardex")
 
             // Colocamos el resultado en la UI
-            recyclerInscripcion.adapter = RecylerInscripcionAdapter(this, R.layout.row_reticula, jsonAlumnoMaterias, bd.getJSONArray("materias"))
+            recyclerInscripcion.adapter = RecyclerInscripcionAdapter(this, R.layout.row_reticula, jsonAlumnoMaterias, bd.getJSONArray("materias"))
             recyclerInscripcion.layoutManager = LinearLayoutManager(this)
 
         }
@@ -76,7 +75,7 @@ class InscripcionActivity : AppCompatActivity() {
         val intent = Intent()
         intent.putExtra("bd", bd.toString())
         intent.putExtra("alumno", jsonAlumno.toString())
-        intent.putExtra("inscripcion",jsonInscripcion.toString())
+        //intent.putExtra("inscripcion",jsonInscripcion.toString())
         setResult(Activity.RESULT_OK,intent)
     }
 }
