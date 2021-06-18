@@ -87,6 +87,12 @@ class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val ca
                     inscripcion.put("profesor","ProfesorA")
                     inscripcion.put("hora","matutino")
                     seleccion.put(inscripcion)
+
+                    var sql=""
+                    var mat= tvMateria.text
+                    sql= "INSERT INTO incripcion (name, profesor) VALUES ('$mat','Profesor_1)"
+                    sql= "SELECT * FROM inscripcion"
+
                     if(seleccion.length()==8){
                         val snack = Snackbar.make(it, "¿Deseas Terminar?", Snackbar.LENGTH_LONG)
 
@@ -105,6 +111,12 @@ class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val ca
                     inscripcion.put("profesor","ProfesorB")
                     inscripcion.put("hora","vespertino")
                     seleccion.put(inscripcion)
+
+                    var sql=""
+                    var mat= tvMateria.text
+                    sql= "INSERT INTO incripcion (name, profesor) VALUES ('$mat','Profesor_1)"
+                    sql= "SELECT * FROM inscripcion"
+
                     if(seleccion.length()==8){
                         val snack = Snackbar.make(it, "¿Deseas Terminar?", Snackbar.LENGTH_LONG)
 
