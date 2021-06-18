@@ -14,18 +14,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.sgebd.R
+import com.sgebd.models.DBManager
 import com.sgebd.utils.ScheduleActivity
 import org.json.JSONArray
 import org.json.JSONObject
 
 
 class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val calificaciones: JSONArray) : RecyclerView.Adapter<RecyclerInscripcionCalificacionAdapter.CalificacionInscripcionVH>()  {
-
+    lateinit var dbManager : DBManager
     val seleccion = JSONArray()
-
     inner class CalificacionInscripcionVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(json : JSONObject) {
+
             val tvMateria = itemView.findViewById<TextView>(R.id.tvRowMateriaInscripcion)
             val tvCalificacion = itemView.findViewById<TextView>(R.id.tvRowCalificacionInscripcion)
             val cardView = itemView.findViewById<CardView>(R.id.cardRowMateriasInscripcion)
@@ -71,6 +72,10 @@ class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val ca
             }
 
             btnSelect.setOnClickListener {
+                dbManager = DBManager(
+                    c, "Registro",
+                    null,1
+                )
              var sql=""
              var mat= tvMateria.text
              sql= "INSERT INTO incripcion (name, profesor) VALUES ('$mat','Profesor_1)"
