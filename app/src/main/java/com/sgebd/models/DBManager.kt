@@ -54,6 +54,26 @@ class DBManager (context: Context?,
             sql= "INSERT INTO incripcion (name, profesor) VALUES ('Fundamentos','Carlos L')"
             materia="SELECT name FROM inscripcion WHERE id=1"
             prof= "SELECT profesor FROM inscripcion WHERE id=1"
+
+            sql= "INSERT INTO incripcion (name, profesor) VALUES ('POO','Lorena R')"
+            materia="SELECT name FROM inscripcion WHERE id=2"
+            prof= "SELECT profesor FROM inscripcion WHERE id=2"
+
+            sql= "INSERT INTO incripcion (name, profesor) VALUES ('Matematicas','Ramiro G')"
+            materia="SELECT name FROM inscripcion WHERE id=3"
+            prof= "SELECT profesor FROM inscripcion WHERE id=3"
+
+            sql= "INSERT INTO incripcion (name, profesor) VALUES ('Investigación','Margarita H')"
+            materia="SELECT name FROM inscripcion WHERE id=4"
+            prof= "SELECT profesor FROM inscripcion WHERE id=4"
+
+            sql= "INSERT INTO incripcion (name, profesor) VALUES ('Programación','Maria V')"
+            materia="SELECT name FROM inscripcion WHERE id=5"
+            prof= "SELECT profesor FROM inscripcion WHERE id=5"
+
+            sql= "INSERT INTO incripcion (name, profesor) VALUES ('Sistemas','Martin O')"
+            materia="SELECT name FROM inscripcion WHERE id=6"
+            prof= "SELECT profesor FROM inscripcion WHERE id=6"
         }
     }
 
