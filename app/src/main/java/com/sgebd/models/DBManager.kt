@@ -12,7 +12,8 @@ class DBManager (context: Context?,
 {
     override fun onCreate(db: SQLiteDatabase?) {
         var sql = ""
-
+        var materia=""
+        var prof=""
         db?.let {
             sql = """
                 CREATE TABLE materia(
@@ -51,6 +52,8 @@ class DBManager (context: Context?,
         """.trimIndent()
 
             sql= "INSERT INTO incripcion (name, profesor) VALUES ('Fundamentos','Carlos L')"
+            materia="SELECT name FROM inscripcion WHERE id=1"
+            prof= "SELECT profesor FROM inscripcion WHERE id=1"
         }
     }
 
