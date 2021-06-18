@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SGEBD</string>
-
+    <string name="db_name">Registro</string>
+    <integer name="db_version">1</integer>
     <string name="jsonAlumnos">
         {
 

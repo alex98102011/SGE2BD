@@ -2,16 +2,14 @@ package com.sgebd.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
-import android.os.Bundle
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -19,6 +17,7 @@ import com.sgebd.R
 import com.sgebd.utils.ScheduleActivity
 import org.json.JSONArray
 import org.json.JSONObject
+
 
 class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val calificaciones: JSONArray) : RecyclerView.Adapter<RecyclerInscripcionCalificacionAdapter.CalificacionInscripcionVH>()  {
 
@@ -72,6 +71,11 @@ class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val ca
             }
 
             btnSelect.setOnClickListener {
+             var sql=""
+             var mat= tvMateria.text
+             sql= "INSERT INTO incripcion (name, profesor) VALUES ('$mat','Profesor_1)"
+             sql= "SELECT * FROM inscripcion"
+             println(sql)
 
                 cardView.setCardBackgroundColor(Color.RED)
                 tvCalificacion.text = "Cursando"
