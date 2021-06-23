@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.sgebd.R
+import com.sgebd.models.DBManager
 import org.json.JSONArray
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 
-class ScheduleActivity : AppCompatActivity() {
+
+class ScheduleActivity: AppCompatActivity(){
     var sql = ""
     var materia=""
     var prof=""
-
     lateinit var tvMLunes: TextView
     lateinit var tvMartes: TextView
     lateinit var tvMartes2 : TextView
@@ -18,8 +21,8 @@ class ScheduleActivity : AppCompatActivity() {
     lateinit var tvJueves: TextView
     lateinit var tvJueves2: TextView
     lateinit var tvViernes: TextView
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+    lateinit var dbManager : DBManager
+    override fun onCreate(savedInstanceState: Bundle?)  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule)
 
@@ -31,11 +34,19 @@ class ScheduleActivity : AppCompatActivity() {
         tvJueves2 = findViewById(R.id.M2Jueves)
         tvViernes=findViewById(R.id.MViernes)
 
+        dbManager = DBManager(
+            this,
+            resources.getString(R.string.db_name),
+            null,
+            resources.getInteger(R.integer.db_version)
+        )
+    sql= ""
+    materia="SELECT name FROM inscripcion WHERE id=1"
+    prof= "SELECT profesor FROM inscripcion WHERE id=1"
 
-        sql= "INSERT INTO incripcion (name, profesor) VALUES ('Fundamentos','Carlos L')"
-        materia="SELECT name FROM inscripcion WHERE id=1"
-        prof= "SELECT profesor FROM inscripcion WHERE id=1"
 
+
+/*
         sql= "INSERT INTO incripcion (name, profesor) VALUES ('POO','Lorena R')"
         materia="SELECT name FROM inscripcion WHERE id=2"
         prof= "SELECT profesor FROM inscripcion WHERE id=2"
@@ -55,13 +66,13 @@ class ScheduleActivity : AppCompatActivity() {
         sql= "INSERT INTO incripcion (name, profesor) VALUES ('Sistemas','Martin O')"
         materia="SELECT name FROM inscripcion WHERE id=6"
         prof= "SELECT profesor FROM inscripcion WHERE id=6"
-
+*/
         val carga = intent.getStringExtra("seleccion")
         println(carga)
         val jsonmaterias=JSONArray(carga)
         val registro1=jsonmaterias.getJSONObject(0)
         val asignatura1=registro1.getString("materia")
-        tvMLunes.text=asignatura1.toString()
+        tvMLunes.text=materia.toString()
         if(jsonmaterias.length()>=2) {
             val registro2 = jsonmaterias.getJSONObject(1)
             val asignatura2 = registro2.getString("materia")

@@ -10,7 +10,7 @@ import com.sgebd.R
 import com.sgebd.models.DBManager
 import org.json.JSONObject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     lateinit var editNoControl : EditText
     lateinit var editPass : EditText
     lateinit var btnAcceder : Button
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             null,
             resources.getInteger(R.integer.db_version)
         )
+
         val miJson = resources.getString(R.string.jsonAlumnos)
 
         val jsonAlumnos = JSONObject(miJson)

@@ -15,12 +15,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.sgebd.R
 import com.sgebd.models.DBManager
+import com.sgebd.models.Materia
 import com.sgebd.utils.ScheduleActivity
 import org.json.JSONArray
 import org.json.JSONObject
 
 
-class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val calificaciones: JSONArray) : RecyclerView.Adapter<RecyclerInscripcionCalificacionAdapter.CalificacionInscripcionVH>()  {
+class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val calificaciones: JSONArray) : RecyclerView.Adapter<RecyclerInscripcionCalificacionAdapter.CalificacionInscripcionVH>()
+    {
     lateinit var dbManager : DBManager
     val seleccion = JSONArray()
     inner class CalificacionInscripcionVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -78,9 +80,10 @@ class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val ca
                 )
              var sql=""
              var mat= tvMateria.text
-             sql= "INSERT INTO incripcion (name, profesor) VALUES ('$mat','Profesor_1)"
-             sql= "SELECT * FROM inscripcion"
-             println(sql)
+
+                sql= "INSERT INTO incripcion (name, profesor) VALUES ('$mat','Profesor_1)"
+                sql= "SELECT * FROM inscripcion"
+
 
                 cardView.setCardBackgroundColor(Color.RED)
                 tvCalificacion.text = "Cursando"
@@ -92,11 +95,10 @@ class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val ca
                     inscripcion.put("profesor","ProfesorA")
                     inscripcion.put("hora","matutino")
                     seleccion.put(inscripcion)
-
-                    var sql=""
-                    var mat= tvMateria.text
-                    sql= "INSERT INTO incripcion (name, profesor) VALUES ('$mat','Profesor_1)"
-                    sql= "SELECT * FROM inscripcion"
+                    val materia = Materia(
+                        0,mat.toString(),"Profesor_1"
+                    )
+                    dbManager.create(materia)
 
                     if(seleccion.length()==8){
                         val snack = Snackbar.make(it, "¿Deseas Terminar?", Snackbar.LENGTH_LONG)
@@ -117,10 +119,10 @@ class RecyclerInscripcionCalificacionAdapter (val c: Context, val r: Int, val ca
                     inscripcion.put("hora","vespertino")
                     seleccion.put(inscripcion)
 
-                    var sql=""
-                    var mat= tvMateria.text
-                    sql= "INSERT INTO incripcion (name, profesor) VALUES ('$mat','Profesor_1)"
-                    sql= "SELECT * FROM inscripcion"
+                    val materia = Materia(
+                        0,mat.toString(),"Profesor_2"
+                    )
+                    dbManager.create(materia)
 
                     if(seleccion.length()==8){
                         val snack = Snackbar.make(it, "¿Deseas Terminar?", Snackbar.LENGTH_LONG)
