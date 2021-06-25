@@ -22,6 +22,7 @@ class ScheduleActivity: AppCompatActivity(){
     lateinit var tvJueves2: TextView
     lateinit var tvViernes: TextView
     lateinit var dbManager : DBManager
+
     override fun onCreate(savedInstanceState: Bundle?)  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule)
@@ -45,6 +46,18 @@ class ScheduleActivity: AppCompatActivity(){
     prof= "SELECT profesor FROM inscripcion WHERE id=1"
 
 
+val db: SQLiteDatabase= dbManager.readableDatabase
+
+        val cursor= db.rawQuery(
+            "SELECT name FROM inscripcion",
+            null
+        )
+val matins= arrayListOf<String>("")
+   if(cursor.moveToFirst()){
+       do{
+        matins.add(cursor.getString(0).toString())
+       }while(cursor.moveToNext())
+   }
 
 /*
         sql= "INSERT INTO incripcion (name, profesor) VALUES ('POO','Lorena R')"
@@ -72,7 +85,7 @@ class ScheduleActivity: AppCompatActivity(){
         val jsonmaterias=JSONArray(carga)
         val registro1=jsonmaterias.getJSONObject(0)
         val asignatura1=registro1.getString("materia")
-        tvMLunes.text=materia.toString()
+        tvMLunes.text=matins[1].toString()
         if(jsonmaterias.length()>=2) {
             val registro2 = jsonmaterias.getJSONObject(1)
             val asignatura2 = registro2.getString("materia")
