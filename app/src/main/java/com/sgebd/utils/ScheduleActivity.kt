@@ -52,7 +52,9 @@ val db: SQLiteDatabase= dbManager.readableDatabase
             "SELECT name FROM inscripcion",
             null
         )
-val matins= arrayListOf<String>("")
+        val borrar= db.rawQuery("DELETE FROM inscripcion",
+        null)
+val matins= arrayListOf<String>()
    if(cursor.moveToFirst()){
        do{
         matins.add(cursor.getString(0).toString())
@@ -85,49 +87,49 @@ val matins= arrayListOf<String>("")
         val jsonmaterias=JSONArray(carga)
         val registro1=jsonmaterias.getJSONObject(0)
         val asignatura1=registro1.getString("materia")
-        tvMLunes.text=matins[1].toString()
-        if(jsonmaterias.length()>=2) {
+        tvMLunes.text=matins[1]
+        /*if(jsonmaterias.length()>=2) {
             val registro2 = jsonmaterias.getJSONObject(1)
-            val asignatura2 = registro2.getString("materia")
-            tvMartes.text = asignatura2.toString()
-        }else{
+            val asignatura2 = registro2.getString("materia")*/
+            tvMartes.text =matins[2]
+        /*}else{
             tvMartes.text="Fundamentos de Investigacion"
         }
         if(jsonmaterias.length()>=3) {
             val registro3 = jsonmaterias.getJSONObject(2)
-            val asignatura3 = registro3.getString("materia")
-            tvMiercoles.text = asignatura3.toString()
-        }else{
+            val asignatura3 = registro3.getString("materia")*/
+            tvMiercoles.text =matins[3]
+        /*}else{
             tvMiercoles.text ="Sin seleccion"
         }
         if(jsonmaterias.length()>=4) {
             val registro4 = jsonmaterias.getJSONObject(3)
-            val asignatura4 = registro4.getString("materia")
-            tvJueves.text = asignatura4.toString()
-        }else{
+            val asignatura4 = registro4.getString("materia")*/
+            tvJueves.text =matins[4]
+        /*}else{
             tvJueves.text ="Sin seleccion"
         }
         if(jsonmaterias.length()>=5) {
             val registro5 = jsonmaterias.getJSONObject(4)
-            val asignatura5 = registro5.getString("materia")
-            tvViernes.text = asignatura5.toString()
-        }else {
+            val asignatura5 = registro5.getString("materia")*/
+            tvViernes.text =matins[5]
+        /*}else {
             tvViernes.text = "Sin seleccion"
         }
         if(jsonmaterias.length()>=6) {
             val registro6 = jsonmaterias.getJSONObject(5)
-            val asignatura6 = registro6.getString("materia")
-            tvMartes2.text = asignatura6.toString()
-        }else{
+            val asignatura6 = registro6.getString("materia")*/
+            tvMartes2.text = matins[6].toString()
+        /*}else{
             tvMartes2.text ="Servicio Social"
         }
         if(jsonmaterias.length()>=7) {
             val registro7 = jsonmaterias.getJSONObject(6)
-            val asignatura7 = registro7.getString("materia")
-            tvJueves2.text = asignatura7.toString()
-        }else{
+            val asignatura7 = registro7.getString("materia")*/
+            tvJueves2.text =matins[7].toString()
+        /*}else{
             tvJueves2.text = "Tutoria"
-        }
+        }*/
     }
 
 }

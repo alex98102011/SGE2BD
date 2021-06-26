@@ -52,6 +52,7 @@ open class DBManager (context: Context?,
         )
         """.trimIndent()
             sql="SELECT name FROM inscripcion WHERE id=1"
+            sql="DELETE FROM inscripcion"
             it.execSQL(sql)
 
         }
